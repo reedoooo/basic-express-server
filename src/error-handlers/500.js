@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Error500 Middleware
@@ -7,10 +7,10 @@
 const error500 = (request, response, next) => {
   // If 'name' query is missing, respond with error
   if (!request.query.name) {
-    console.log("error500.js hit");
+    console.log('error500.js hit');
 
     let err = {
-      message: "Missing value for 'name' query",
+      message: 'Missing value for \'name\' query',
     };
 
     response.status(500).send(err);

@@ -9,7 +9,7 @@ describe('API Server Tests', () => {
   
   // Test for bad route
   it('responds with 404 on a bad route', async () => {
-    const response = await request.get("/nonexistentroute?name=Tha+human");
+    const response = await request.get('/nonexistentroute?name=Tha+human');
     expect(response.status).toEqual(404);
   });
 
@@ -27,13 +27,13 @@ describe('API Server Tests', () => {
 
   // Test for correctly formatted request
   it('responds with 200 if the request is correctly formatted', async () => {
-    const response = await request.get("/person?name=Reed");
+    const response = await request.get('/person?name=Reed');
     expect(response.status).toBe(200);
   });
 
   // Test for the response body
   it('passes if response body is an object with correct format', async () => {
-    const response = await request.get("/person?name=El+Humano");
+    const response = await request.get('/person?name=El+Humano');
     expect(response.text).toBe(`{"name":"El Humano"}`);
   });
 });

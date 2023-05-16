@@ -21,6 +21,7 @@ app.use(logger); // Logger middleware
 app.use(validator); // Validator middleware
 
 app.get('/', (request, response) => {
+  console.log('dddddddd!');
   response.status(200).send('Hello World!');
 });
 
