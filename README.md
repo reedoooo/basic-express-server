@@ -2,17 +2,19 @@
 
 Code Fellows - Code 401 - Class 02 Lab
 
-+ server deploy: 
+- server deploy:
 
-+ server prod: 
+- server prod:
 
-+ Github Actions: 
+- Github Actions:
 
-+ Pull Requests: 
+- Pull Requests:
+
+  - [PR1](https://github.com/reedoooo/basic-express-server/compare/dev?expand=1)
 
 ## Server
 
-URL: 
+URL:
 
 Endpoint: /person
 
