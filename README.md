@@ -2,7 +2,7 @@
 
 Code Fellows - Code 401 - Class 02 Lab
 
-- server deploy:
+- server deploy: https://basic-express-server.herokuapp.com/
 
 - server prod:
 
@@ -14,12 +14,12 @@ Code Fellows - Code 401 - Class 02 Lab
 
 ## Server
 
-URL:
+URL: https://basic-express-server.herokuapp.com
 
 Endpoint: /person
 
-Example: https://basic-express-server-y020.onrender.com/person?name=El+Duderino
+Example: https://basic-express-server.herokuapp.com/person?name=Tha+Human
 
 ## UML Architecture
 
-![UML Architecture](./UML-diagram.JPG)
+![UML Arc](./src/Basic-Express-Server.jpeg)
