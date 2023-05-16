@@ -2,11 +2,12 @@
 
 const validator = (request, response, next) => {
   if (request.query.name) {
+    console.log('validator.js hit');
     next();
   } else {
-    throw new Error('Missing \'name\' query');
-    // throw new Error('Missing 'name' query');
-
+    // console.log('validator.js error hit');
+    // next('Invalid request');
+    {next();}
   }
 };
 
