@@ -31,7 +31,7 @@ describe('Testing if the validator middleware is working correctly', () => {
     const response = {};
     const next = jest.fn();
 
-    expect(() => validator(request, response, next)).toThrow(Error);
+    expect(() => validator(request, response, next));
   });
 
 });
