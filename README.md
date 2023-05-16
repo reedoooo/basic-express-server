@@ -11,6 +11,7 @@ Code Fellows - Code 401 - Class 02 Lab
 - Pull Requests:
 
   - [PR1](https://github.com/reedoooo/basic-express-server/compare/dev?expand=1)
+  - [PR2](https://github.com/reedoooo/basic-express-server/pull/2)
 
 ## Server
 
