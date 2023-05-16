@@ -20,6 +20,10 @@ app.use(cors()); // Enable CORS
 app.use(logger); // Logger middleware
 app.use(validator); // Validator middleware
 
+app.get('/', (request, response) => {
+  response.status(200).send('Hello World!');
+});
+
 // Routes
 app.get('/person', (request, response, next) => {
   if (request.query.name) {
