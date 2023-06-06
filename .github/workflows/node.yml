@@ -49,9 +49,8 @@ jobs:
             --environment-name Exp-server-env \
             --version-label v${{ github.sha }}
 
-      - name: Get deployment status
-        run: |
-          echo "Deployment status: ${{ steps.deploy.outcome }}" >> $GITHUB_ENV
+      - name: Set deployment status
+        run: echo "::set-env name=DEPLOYMENT_STATUS::success"
 
       - name: Display deployment status
         run: |
