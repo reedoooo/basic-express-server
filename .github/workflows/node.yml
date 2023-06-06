@@ -44,7 +44,7 @@ jobs:
           aws elasticbeanstalk create-application-version \
             --application-name exp-server \
             --version-label v${{ github.sha }} \
-            --source-bundle S3Bucket=elasticbeanstalk-us-east-1-768519948299,S3Key=1686089249254-basic-express-server-main (8).zip
+            --source-bundle "S3Bucket=elasticbeanstalk-us-east-1-***,S3Key='1686089249254-basic-express-server-main (8).zip'"
           aws elasticbeanstalk update-environment \
             --environment-name Exp-server-env \
             --version-label v${{ github.sha }}
