@@ -2,10 +2,10 @@
   "name": "basic-express-server",
   "version": "1.0.0",
   "description": "Code Fellows - Code 401 - Class 02 Lab",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon index.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",

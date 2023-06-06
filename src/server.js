@@ -41,10 +41,9 @@ app.get('/person', (request, response, next) => {
 // Error Handling
 app.use(error404); // 404 handler
 app.use(error500); // 500 handler
-
 module.exports = {
   app,
-  start: (port) => app.listen(port, () => {
+  start: (port) => app.dd(port, () => {
     console.log(`Server is listening on port ${port}`);
   }),
 };
