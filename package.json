@@ -1,10 +1,10 @@
 {
   "name": "basic-express-server",
-  
   "version": "1.0.0",
   "engines": {
-    "node": "18.x"
-  },
+    "node": "19.9.0",
+    "npm": "9.6.3"
+  },  
   "description": "Code Fellows - Code 401 - Class 02 Lab",
   "main": "server.js",
   
