@@ -31,15 +31,22 @@ jobs:
       - name: Print github.sha
         run: echo ${{ github.sha }}
 
-      - name: Deploy to AWS Beanstalk
-        uses: einaregilsson/beanstalk-deploy@v17
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          region: us-east-1
-          application_name: exp-server
-          environment_name: exp-server-env
-          version_label: v${{ github.sha }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Deploy to AWS Beanstalk
+        run: |
+          aws elasticbeanstalk create-application-version \
+            --application-name exp-server \
+            --version-label v${{ github.sha }} \
+            --source-bundle S3Bucket=my-deployment-bucket,S3Key=my-app.zip
+          aws elasticbeanstalk update-environment \
+            --environment-name exp-server-env \
+            --version-label v${{ github.sha }}
 
       - name: Run tests
         run: npm test
