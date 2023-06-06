@@ -7,7 +7,7 @@
     "es6": true
   },
   "globals": {
-    "fail":true
+    "fail": true
   },
   "extends": "eslint:recommended",
   "parserOptions": {
@@ -21,5 +21,6 @@
     "comma-dangle": ["error", "always-multiline"],
     "semi": [ "error", "always" ],
     "no-unused-vars": [1, {"vars": "local", "args": "none"}]
-  }
+  },
+  "ignorePatterns": ["package.json", "package-lock.json", "README.md"]
 }
