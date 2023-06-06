@@ -33,7 +33,7 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          region: <AWS_REGION>
+          region: us-east-1
           application_name: exp-server
           environment_name: exp-server-env
           version_label: v${{ github.sha }}
