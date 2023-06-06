@@ -1,27 +1,42 @@
-name: Run Javascript Tests
+name: Deploy to AWS Beanstalk
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
-
+  deploy:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        # adjust appropriate Node version(s) as necessary. i.e. [18.x] or [16.x, 18.x, 19.x]
-        node-version: [18.x]
+        node-version: [14.x]
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
-      run: |
-        npm i
-        npm run build --if-present
-        npm test
-      env:
-        CI: true
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build application
+        run: npm run build --if-present
+
+      - name: Deploy to AWS Beanstalk
+        uses: einaregilsson/beanstalk-deploy@v16
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          region: <AWS_REGION>
+          application_name: exp-server
+          environment_name: exp-server-env
+          version_label: v${{ github.sha }}
+
+      - name: Run tests
+        run: npm test
