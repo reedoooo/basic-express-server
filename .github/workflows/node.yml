@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [16.x]
 
     steps:
       - name: Checkout code
@@ -27,6 +27,9 @@ jobs:
 
       - name: Build application
         run: npm run build --if-present
+
+      - name: Print github.sha
+        run: echo ${{ github.sha }}
 
       - name: Deploy to AWS Beanstalk
         uses: einaregilsson/beanstalk-deploy@v16
