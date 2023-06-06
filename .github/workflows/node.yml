@@ -46,7 +46,7 @@ jobs:
             --version-label v${{ github.sha }} \
             --source-bundle S3Bucket=my-deployment-bucket,S3Key=my-app.zip
           aws elasticbeanstalk update-environment \
-            --environment-name exp-server-env \
+            --environment-name Exp-server-env \
             --version-label v${{ github.sha }}
 
       - name: Get deployment status
