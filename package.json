@@ -2,7 +2,7 @@
   "name": "basic-express-server",
   "version": "1.0.0",
   "description": "Code Fellows - Code 401 - Class 02 Lab",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "jest",
     "start": "node index.js"
