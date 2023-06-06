@@ -50,13 +50,13 @@ jobs:
             --version-label v${{ github.sha }}
 
       - name: Set deployment status
-        run: echo "::set-env name=DEPLOYMENT_STATUS::success"
+        run: echo "DEPLOYMENT_STATUS=success" >> $GITHUB_ENV
 
       - name: Display deployment status
         run: |
-          echo "Deployment status: $DEPLOY_STATUS"
+          echo "Deployment status: $DEPLOYMENT_STATUS"
         env:
-          DEPLOY_STATUS: ${{ env.DEPLOYMENT_STATUS }}
+          DEPLOYMENT_STATUS: ${{ env.DEPLOYMENT_STATUS }}
 
       - name: Run tests
         run: npm test
