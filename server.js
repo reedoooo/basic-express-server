@@ -20,11 +20,8 @@ app.get('/', (request, response) => {
 
 app.get('/person', (request, response, next) => {
   if (request.query.name) {
-    response.status(200).send(
-      JSON.stringify({
-        name: request.query.name,
-      }),
-    );
+    console.log('Received name:', request.query.name); // Debugging statement
+    response.status(200).json({ name: request.query.name });
   } else {
     next();
   }
@@ -37,6 +34,8 @@ require('dotenv').config();
 
 const serverUrl = process.env.PORT || 3001;
 
-app.listen(serverUrl, () => {
+const server = app.listen(serverUrl, () => {
   console.log(`Server is running, listening on ${serverUrl}`);
 });
+
+module.exports = { app, server };
